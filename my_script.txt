@@ -1,0 +1,17 @@
+#!/bin/bash
+
+wget https://www.ynetnews.com/category/3082
+grep -o 'https://www.ynetnews.com/article/[A-Za-z0-9]\+' 3082 | uniq > articles
+num_of_lines=$((wc -l articles))
+
+echo $num_of_lines
+cat articles | while read link_line;
+	do netanyahu_sum=0;
+	gantz_sum=0;
+	wget $link_line;
+	echo $link_line | cut -d / -f 5 | while read article_line;
+	do (( netanyahu_sum+=$( grep -o Netanyahu $article_line | wc -l) ));
+	(( gantz_sum+=$(grep -o Gantz $article_line | wc -l) ));
+	done
+	echo $link_line, Netanyahu, $netanyahu_sum, Gantz, $gantz_sum >> results.csv
+done
