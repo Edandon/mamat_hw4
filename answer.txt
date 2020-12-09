@@ -1,2 +1,3 @@
 1. Much more time than the script. At least couple of hours.
-2. 
+2. Our main take away is that scripts are our friends. We like them. We would like more of them to do all our repetetive tasks.
+3. If we wanted to run the script every hour we could put the code into an endless loop and include an hour timer in each loop. We could also ignore articles we already had on a previous run by comparing the links we get with a master link file and only process the new webpages and add them to the master link file.
