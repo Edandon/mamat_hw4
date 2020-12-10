@@ -17,3 +17,4 @@ cat articles | while read link_line;
 		echo $link_line, Netanyahu, $netanyahu_sum, Gantz, $gantz_sum >> results.csv
 	fi
 done
+rm articles
