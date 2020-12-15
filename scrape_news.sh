@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# scrapes 3082 page and gets all relevant links
 wget https://www.ynetnews.com/category/3082
 grep -o 'https://www.ynetnews.com/article/[A-Za-z0-9]\{9\}\b' 3082 | sort | uniq > articles
 echo `wc -l < articles` > results.csv
 
+# Goes into each article and counts appearances
 cat articles | while read link_line;
 	
 	do wget $link_line;
